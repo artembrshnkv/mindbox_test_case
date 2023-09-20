@@ -13,8 +13,8 @@ class Figure:
 
     __correct_values_types = (int, float)
 
-    @classmethod
-    def __is_non_negative(cls, number):
+    @staticmethod
+    def __is_non_negative(number):
         return number >= 0
 
     @staticmethod
