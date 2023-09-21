@@ -1,5 +1,5 @@
 import math
-from task_n2_errors import TriangleDoesNotExistsError
+from task_n2_errors import TriangleDoesNotExistsError, InvalidFigureTypeError
 
 """
 Script that gives figures classes and methods to work with them.
@@ -28,8 +28,20 @@ class Figure:
         is_correct = type(value) in cls.__correct_values_types and cls.__is_non_negative(value)
         return is_correct if is_correct else cls.__raise_exception_if_incorrect_value()
 
-    def calc_figure_area(self):
-        return None
+    def calc_figure_area(self, *args):
+        """
+        Calculate area despite figure type knowing.
+        Needs only *args as figure sides.
+        Raise error if no correct figure for given variables.
+        """
+
+        if len(args) == 1:
+            s = Circle(*args).calc_figure_area()
+        elif len(args) == 3:
+            s = Triangle(*args).calc_figure_area()
+        else:
+            raise InvalidFigureTypeError
+        return s
 
     def get_figure_variables(self):
         return None
@@ -117,6 +129,11 @@ if __name__ == '__main__':
     t1 = Triangle(a=3, b=4, c=5)
     print(t1.calc_figure_area())
     print(t1.get_figure_variables())
+
+    f1 = Figure().calc_figure_area(2)
+    f2 = Figure().calc_figure_area(3, 4, 5)
+    print(f1)
+    print(f2)
 
     print('Contact me:)\n'
           'https://t.me/artembrshnkv\n')
