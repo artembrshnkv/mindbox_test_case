@@ -61,10 +61,10 @@ class Circle(Figure):
         return s
 
     def get_figure_variables(self):
-        answer = f"\nRadius: {self.__radius},\n" \
+        response = f"\nRadius: {self.__radius},\n" \
                  f"Pi: {self.__pi},\n" \
                  f"Formula: {self.__formula}\n"
-        return answer
+        return response
 
 
 class Triangle(Figure):
@@ -110,14 +110,14 @@ class Triangle(Figure):
         return sum(powered_sides) == max(powered_sides) * 2
 
     def get_figure_variables(self):
-        answer = f"\n1-st Side: {self.__a},\n" \
+        response = f"\n1-st Side: {self.__a},\n" \
                  f"2-nd Side: {self.__b},\n" \
                  f"3-rd Side: {self.__c}, \n" \
                  f"Formula: {self.__formula}\n" \
                  f"Is exists: {self.__is_exists()}\n"
         if self.__is_right():
-            answer += f"Is right: {self.__is_right()}\n"
-        return answer
+            response += f"Is right: {self.__is_right()}\n"
+        return response
 
 
 if __name__ == '__main__':
