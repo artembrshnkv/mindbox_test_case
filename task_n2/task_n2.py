@@ -39,6 +39,8 @@ class Figure:
             s = Circle(*args).calc_figure_area()
         elif len(args) == 3:
             s = Triangle(*args).calc_figure_area()
+        elif not args:
+            s = None
         else:
             raise InvalidFigureTypeError
         return s
